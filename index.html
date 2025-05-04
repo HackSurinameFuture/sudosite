@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>sudo su - HackSurinameFuture</title>
+	<style>
+		body {
+			background-color: #1e1e1e;
+			color: #00ff7f;
+			font-family: 'Courier New', Courier, monospace;
+			padding: 0;
+			margin: 0;
+			overflow-x: hidden;
+		}
+
+		.terminal-line {
+			margin-bottom: 1rem;
+			white-space: pre-wrap;
+			line-height: 1.5;
+		}
+
+		.terminal-line.command {
+			color: #00ff7f;
+			/* Verde para líneas que comienzan con '>' */
+		}
+
+		.terminal-line.output {
+			color: #888888;
+			/* Gris para el resto de las líneas */
+		}
+
+		a {
+			color: #00d5ff;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		footer {
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			background-color: #1e1e1e;
+			text-align: center;
+			padding: 1rem 0;
+			font-size: 0.8rem;
+			color: #888;
+			border-top: 1px solid #333;
+		}
+
+		.blinking-cursor {
+			display: inline-block;
+			width: 10px;
+			animation: blink 1s step-start infinite;
+		}
+
+		@keyframes blink {
+			50% {
+				opacity: 0;
+			}
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 5rem auto 5rem;
+			/* Add space for fixed header and footer */
+			padding: 2rem;
+		}
+
+		h1 {
+			color: #ffffff;
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.hidden {
+			display: none;
+		}
+
+		header {
+			position: fixed;
+			top: 0;
+			width: 100%;
+			background-color: #1e1e1e;
+			/* text-align: center; */
+			padding: 1rem 0;
+			font-size: 1.5rem;
+			color: #ffffff;
+			border-bottom: 1px solid #333;
+			padding-left: 30px;
+		}
+
+		.content {
+			margin-top: 5rem;
+			/* Space for fixed header */
+			margin-bottom: 5rem;
+			/* Space for fixed footer */
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		&gt; sudo <strong>SU</strong> <br/>
+		&gt; <strong>SU</strong> do! Hack Suriname Future
+	</header>
+	<div class="content">
+		<div class="container">
+			<div id="terminal"></div>
+		</div>
+	</div>
+	<footer>
+		Powered by <a href="https://divengine.sr">Divengine Software Solutions</a>
+	</footer>
+	<script>
+		const lines = [
+			'Loading operating system... Done',
+			'Booting up... Done',
+			'Today is ' + new Date().toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),
+			'Check your email for the latest updates',
+			'[today] > mail',
+			'- You have 1 new message from the People of the Suriname Future',
+			'- Subject: Mission Statement',
+			'- From: people@thefuture.sr',
+			'- To: rafageist@divengine.com',
+			'- Date: ' + new Date(new Date().setFullYear(new Date().getFullYear() + 3)).toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),
+			'- Message:',
+			'   Dear rafageist,',
+			'   We are excited to share our mission statement with you.',
+			'   Your mission is to empower Suriname through serious programming education.',
+			'   Education is the key to unlocking the potential of our youth and building a better future.',
+			'   We believe that by training youth from age 11+ in real-world programming, Linux, Git, and project-based learning, we can create a brighter future for our country.',
+			'   We are committed to providing the best resources and support for our students and instructors.',
+			'   We are looking forward to working with you to make this vision a reality.',
+			'   Save the attachment and install the Hack Suriname Future package to get started.',
+			'   Best regards',
+			'[today] > mail save-attachment id=1 file=hack-suriname-future.deb',
+			'[today] > sudo dpkg -i hack-suriname-future.deb',
+			'[sudo] password for rafageist > ********',
+			'- Reading package lists... Done',
+			'- Building dependency tree... Done',
+			'- Reading state information... Done',
+			'- The following NEW packages will be installed:',
+			'    hack-suriname-future-curriculum',
+			'    hack-suriname-future-students',
+			'    hack-suriname-future-instructors',
+			'    hack-suriname-future-projects',
+			'    hack-suriname-future-resources',
+			'    hack-suriname-future-tools',
+			'    hack-suriname-future-environment',
+			'- 0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.',
+			'[today] > sudo hack-suriname-future',
+			'- Booting up Hack Suriname Future service...',
+			' - Checking curriculum... Done',
+			' - Registering students... Done',
+			' - Calling instructors... Done',
+			' - Reading projects... Done',
+			' - Loading resources... Done',
+			' - Preparing tools... Done',
+			' - Connecting everything... Done',
+			' - Bootstrapping... Done',
+			' - Hack Suriname Future is now live!',
+			'    1. Open your browser and navigate to: ',
+			'       https://github.com/HackSurinameFuture',
+			'       to learn more about our mission and curriculum.',
+			'    2. Execute a "sudo SU" command to moving to the future',
+			'[today] > sudo SU',
+			'[sudo] password for SU > ********',
+			'- Now SU can do!',
+			' Welcome to the future of Suriname!',
+			' Today is ' + new Date(new Date().setFullYear(new Date().getFullYear() + 3)).toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),	
+			'[the future] > SU do',
+			'- The future of Suriname was hacked successfully!',
+			'  Was is the next step?'		
+		];
+
+		const terminal = document.getElementById('terminal');
+		let index = 0;
+		let cursor = '<span class="blinking-cursor">_</span>';
+
+		function typeLine() {
+			if (index >= lines.length) {
+				const finalLine = document.createElement('div');
+				finalLine.className = 'terminal-line';
+				finalLine.innerHTML = '[the future] > ' + cursor;
+				terminal.appendChild(finalLine);
+				finalLine.scrollIntoView({ behavior: 'smooth' }); // Scroll to the last line
+				return;
+			}
+
+			const line = document.createElement('div');
+			const currentLine = lines[index];
+			const isCommand = currentLine.trim().indexOf('>') > -1;
+
+			// Apply appropriate class based on line type
+			line.className = `terminal-line ${isCommand ? 'command' : 'output'}`;
+			terminal.appendChild(line);
+
+			let charIndex = 0;
+
+			function typeChar() {
+				if (currentLine[charIndex] === '>') {
+					// Pause for 2 seconds when `>` is printed
+					line.innerHTML += currentLine[charIndex];
+					charIndex++;
+					setTimeout(typeChar, 2000);
+					return;
+				}
+
+				line.innerHTML += currentLine[charIndex];
+				charIndex++;
+
+				if (charIndex === currentLine.length) {
+					index++;
+					line.scrollIntoView({ behavior: 'smooth' }); // Scroll to the current line
+					setTimeout(typeLine, 400);
+				} else {
+					setTimeout(typeChar, 30);
+				}
+			}
+
+			typeChar();
+		}
+
+		typeLine();
+	</script>
+</body>
+
+</html>
