@@ -3,8 +3,31 @@
 
 <head>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>sudo su - HackSurinameFuture</title>
+	<meta name="description"
+		content="A bold initiative to transform Suriname's education system through high-performance programming and digital skills training." />
+	<meta name="keywords"
+		content="Suriname, programming, education, technology, future, open source, Linux, Git, students, youth" />
+	<meta name="author" content="Divengine Software Solutions" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta property="og:title" content="sudo SU - Hack Suriname Future" />
+	<meta property="og:description"
+		content="Transforming education in Suriname through real programming, open source tools, and bold thinking." />
+	<meta property="og:image" content="https://avatars.githubusercontent.com/u/210182397?s=200&v=4" />
+	<meta property="og:url" content="https://sudo.divengine.org/" />
+	<meta property="o<meta name=" twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="sudo SU - Hack Suriname Future" />
+	<meta name="twitter:description"
+		content="Join the movement to empower Suriname’s next generation through advanced programming education." />
+	<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/210182397?s=200&v=4" />
+	g:type" content="website" />
+
+	<!-- fav icon -->
+	<link rel="icon" href="https://avatars.githubusercontent.com/u/210182397?s=200&v=4" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="https://avatars.githubusercontent.com/u/210182397?s=200&v=4"
+		type="image/x-icon" />
+	<link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/210182397?s=200&v=4" type="image/x-icon" />
 	<style>
 		body {
 			background-color: #1e1e1e;
@@ -18,17 +41,19 @@
 		.terminal-line {
 			margin-bottom: 1rem;
 			white-space: pre-wrap;
-			line-height: 1.5;
+			line-height: 1.1;
 		}
 
 		.terminal-line.command {
 			color: #00ff7f;
-			/* Verde para líneas que comienzan con '>' */
 		}
 
 		.terminal-line.output {
 			color: #888888;
-			/* Gris para el resto de las líneas */
+		}
+
+		.terminal-line.orange {
+			color: #FFA500;
 		}
 
 		a {
@@ -86,7 +111,6 @@
 			top: 0;
 			width: 100%;
 			background-color: #1e1e1e;
-			/* text-align: center; */
 			padding: 1rem 0;
 			font-size: 1.5rem;
 			color: #ffffff;
@@ -96,18 +120,32 @@
 
 		.content {
 			margin-top: 5rem;
-			/* Space for fixed header */
 			margin-bottom: 5rem;
-			/* Space for fixed footer */
 		}
 	</style>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-V11QKWYGWB"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'G-V11QKWYGWB');
+	</script>
 </head>
 
 <body>
 	<header>
-		&gt; sudo <strong>SU</strong> <br/>
-		&gt; <strong>SU</strong> do! Hack Suriname Future
+		&gt; sudo <strong>SU</strong> <br />
+		&gt; <strong>SU</strong> do!
+		<span style="position: fixed; top:10px; right: 5px;"><a href="https://github.com/HackSurinameFuture">Hack
+				Suriname Future</a></span>
 	</header>
+	<!-- floating button to skip intro and redirect to GitHub -->
+	<a href="https://github.com/HackSurinameFuture"
+		style="position: fixed; bottom: 40px; right: 20px; background-color: #00ff15; color: #050505; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-size: 1rem;">Skip
+		intro, go to GitHub</a>
+
 	<div class="content">
 		<div class="container">
 			<div id="terminal"></div>
@@ -118,17 +156,17 @@
 	</footer>
 	<script>
 		const lines = [
-			'Loading operating system... Done',
-			'Booting up... Done',
-			'Today is ' + new Date().toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),
-			'Check your email for the latest updates',
+			'(*) Loading operating system... Done',
+			'(*) Booting up... Done',
+			'(*) Today is ' + new Date().toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),
+			'(*) [!] Check your email for the latest updates',
 			'[today] > mail',
 			'- You have 1 new message from the People of the Suriname Future',
-			'- Subject: Mission Statement',
-			'- From: people@thefuture.sr',
-			'- To: rafageist@divengine.com',
-			'- Date: ' + new Date(new Date().setFullYear(new Date().getFullYear() + 3)).toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),
-			'- Message:',
+			'  Subject: Mission Statement',
+			'  From: people@thefuture.sr',
+			'  To: rafageist@divengine.com',
+			'  Date: ' + new Date(new Date().setFullYear(new Date().getFullYear() + 3)).toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),
+			'  Body:',
 			'   Dear rafageist,',
 			'   We are excited to share our mission statement with you.',
 			'   Your mission is to empower Suriname through serious programming education.',
@@ -138,6 +176,7 @@
 			'   We are looking forward to working with you to make this vision a reality.',
 			'   Save the attachment and install the Hack Suriname Future package to get started.',
 			'   Best regards',
+			'   --',
 			'[today] > mail save-attachment id=1 file=hack-suriname-future.deb',
 			'[today] > sudo dpkg -i hack-suriname-future.deb',
 			'[sudo] password for rafageist > ********',
@@ -164,18 +203,15 @@
 			' - Connecting everything... Done',
 			' - Bootstrapping... Done',
 			' - Hack Suriname Future is now live!',
-			'    1. Open your browser and navigate to: ',
-			'       https://github.com/HackSurinameFuture',
-			'       to learn more about our mission and curriculum.',
-			'    2. Execute a "sudo SU" command to moving to the future',
+			' (*) Execute the "sudo SU" command and take control of Suriname’s future.',
 			'[today] > sudo SU',
 			'[sudo] password for SU > ********',
-			'- Now SU can do!',
-			' Welcome to the future of Suriname!',
-			' Today is ' + new Date(new Date().setFullYear(new Date().getFullYear() + 3)).toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),	
+			'(*) Now SU can do!',
+			'(*) Welcome to the future of Suriname!',
+			'(*) Today is ' + new Date(new Date().setFullYear(new Date().getFullYear() + 3)).toLocaleString('en-US', { timeZone: 'America/Paramaribo' }),
 			'[the future] > SU do',
-			'- The future of Suriname was hacked successfully!',
-			'  Was is the next step?'		
+			'(*) The future of Suriname was hacked successfully!',
+			'- Redirecting to GitHub organization...'
 		];
 
 		const terminal = document.getElementById('terminal');
@@ -184,11 +220,10 @@
 
 		function typeLine() {
 			if (index >= lines.length) {
-				const finalLine = document.createElement('div');
-				finalLine.className = 'terminal-line';
-				finalLine.innerHTML = '[the future] > ' + cursor;
-				terminal.appendChild(finalLine);
-				finalLine.scrollIntoView({ behavior: 'smooth' }); // Scroll to the last line
+				// Redirect to GitHub after the final command
+				setTimeout(() => {
+					window.location.href = 'https://github.com/HackSurinameFuture';
+				}, 2000); // Wait 2 seconds before redirecting
 				return;
 			}
 
@@ -198,6 +233,11 @@
 
 			// Apply appropriate class based on line type
 			line.className = `terminal-line ${isCommand ? 'command' : 'output'}`;
+
+			if (currentLine.trim().indexOf('(*)') > -1) {
+				line.className = 'terminal-line orange';
+			}
+
 			terminal.appendChild(line);
 
 			let charIndex = 0;
